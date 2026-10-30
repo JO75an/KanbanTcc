@@ -10,7 +10,6 @@
     --borda: #1e293b;
 }
 
-/* Configurações gerais */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -26,7 +25,6 @@ body {
     padding-top: 110px;
 }
 
-/* Cabeçalho */
 header {
     background-color: rgba(11, 15, 25, 0.9);
     border-bottom: 1px solid var(--borda);
@@ -43,22 +41,20 @@ header h1 {
     font-size: 1.8rem;
 }
 
-/* Botão voltar */
 .btn-voltar {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     padding: 10px 20px;
     background-color: #3b82f6;
     color: white;
     text-decoration: none;
-    border: none;
     border-radius: 6px;
     font-size: 0.95rem;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s, transform 0.1s;
-
     position: fixed;
     top: 20px;
     right: 20px;
@@ -73,20 +69,21 @@ header h1 {
     transform: scale(0.98);
 }
 
-/* Imagem */
 .imagem-container {
     text-align: center;
+    margin-top: 70px;
     padding: 30px 20px 20px;
 }
 
 .imagem-container img {
+    display: block;
     width: 600px;
     max-width: 100%;
     height: auto;
+    margin: 0 auto;
     border-radius: 18px;
 }
 
-/* Seção do link GitHub */
 .grafico {
     padding: 30px 20px;
     text-align: center;
@@ -108,9 +105,7 @@ header h1 {
     color: var(--azul-neon);
 }
 
-/* Responsividade para celulares */
 @media (max-width: 600px) {
-
     body {
         padding-top: 130px;
     }
@@ -130,6 +125,7 @@ header h1 {
     }
 
     .imagem-container {
+        margin-top: 50px;
         padding: 20px 15px;
     }
 
@@ -141,4 +137,5 @@ header h1 {
         padding: 20px;
     }
 }
+
 
