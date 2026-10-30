@@ -10,6 +10,7 @@
     --borda: #1e293b;
 }
 
+/* Configurações gerais */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -22,6 +23,7 @@ body {
     background-color: var(--bg-principal);
     color: var(--texto-claro);
     line-height: 1.6;
+    padding-top: 110px;
 }
 
 /* Cabeçalho */
@@ -36,37 +38,9 @@ header {
     padding: 20px;
 }
 
-/* Título */
 header h1 {
     color: var(--texto-claro);
-}
-
-/* Seção do gráfico */
-.grafico {
-    padding: 100px 20px 8px 20px;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.grafico p {
-    color: var(--texto-mutado);
-    font-size: 1.1rem;
-    margin-bottom: 40px;
-}
-
-/* Imagem */
-.imagem-container {
-    text-align: center;
-    padding: 50px 20px 20px;
-}
-
-.imagem-container img {
-    
-    width: 600px;
-    max-width: 100%;
-    height: auto;
-    border-radius: 18px;
+    font-size: 1.8rem;
 }
 
 /* Botão voltar */
@@ -99,17 +73,52 @@ header h1 {
     transform: scale(0.98);
 }
 
-/* Link do GitHub */
+/* Imagem */
+.imagem-container {
+    text-align: center;
+    padding: 30px 20px 20px;
+}
+
+.imagem-container img {
+    width: 600px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 18px;
+}
+
+/* Seção do link GitHub */
+.grafico {
+    padding: 30px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .grafico a {
     text-decoration: none;
+}
+
+.grafico p {
+    color: var(--texto-mutado);
+    font-size: 1.1rem;
+    transition: color 0.3s;
 }
 
 .grafico a:hover p {
     color: var(--azul-neon);
 }
 
-/* Responsividade */
+/* Responsividade para celulares */
 @media (max-width: 600px) {
+
+    body {
+        padding-top: 130px;
+    }
+
+    header {
+        padding: 15px;
+    }
+
     header h1 {
         font-size: 1.3rem;
     }
@@ -117,15 +126,19 @@ header h1 {
     .btn-voltar {
         top: 85px;
         right: 15px;
+        padding: 8px 14px;
+    }
+
+    .imagem-container {
+        padding: 20px 15px;
     }
 
     .imagem-container img {
-        text-align: center;
-        padding: 50px 20px 20px;
         width: 100%;
     }
 
     .grafico {
-        padding-top: 60px;
+        padding: 20px;
     }
 }
+
