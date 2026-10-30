@@ -1,0 +1,128 @@
+
+:root {
+    --bg-principal: #0b0f19;
+    --bg-card: #131a2c;
+    --bg-destaque: #1e2942;
+    --texto-claro: #f1f5f9;
+    --texto-mutado: #94a3b8;
+    --azul-neon: #38bdf8;
+    --azul-hover: #0ea5e9;
+    --borda: #1e293b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto-claro);
+    line-height: 1.6;
+}
+
+/* Cabeçalho */
+header {
+    background-color: rgba(11, 15, 25, 0.9);
+    border-bottom: 1px solid var(--borda);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+}
+
+/* Título */
+header h1 {
+    color: var(--texto-claro);
+}
+
+/* Seção do gráfico */
+.grafico {
+    padding: 100px 20px 8px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.grafico p {
+    color: var(--texto-mutado);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+/* Imagem */
+.imagem-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.imagem-container img {
+    width: 600px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 18px;
+}
+
+/* Botão voltar */
+.btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: #3b82f6;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+}
+
+.btn-voltar:hover {
+    background-color: #2563eb;
+}
+
+.btn-voltar:active {
+    transform: scale(0.98);
+}
+
+/* Link do GitHub */
+.grafico a {
+    text-decoration: none;
+}
+
+.grafico a:hover p {
+    color: var(--azul-neon);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    .btn-voltar {
+        top: 85px;
+        right: 15px;
+    }
+
+    .imagem-container img {
+        width: 100%;
+    }
+
+    .grafico {
+        padding-top: 60px;
+    }
+}
