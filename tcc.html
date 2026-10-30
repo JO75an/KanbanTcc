@@ -1,9 +1,12 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberShield | Guia de Conscientização Digital</title>
+
+    <title>Alerta no Ar | Detector de Fumaça</title>
+
     <style>
         :root {
             --bg-principal: #0b0f19;
@@ -30,9 +33,10 @@
             line-height: 1.6;
         }
 
-        /* Cabeçalho e Navegação */
+        /* Cabeçalho */
+
         header {
-            background-color: rgba(11, 15, 25, 0.9);
+            background-color: rgba(11, 15, 25, 0.95);
             border-bottom: 1px solid var(--borda);
             position: fixed;
             top: 0;
@@ -43,7 +47,7 @@
 
         .nav-container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -55,40 +59,45 @@
             font-weight: bold;
             color: var(--azul-neon);
             text-decoration: none;
-            display: flex;
+        }
+
+        /* Botão Kanban */
+
+        .btn-voltar {
+            display: inline-flex;
             align-items: center;
             gap: 8px;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-
-        .nav-menu a {
-            color: var(--texto-mutado);
+            padding: 10px 20px;
+            background-color: #3b82f6;
+            color: white;
             text-decoration: none;
+            border-radius: 6px;
             font-size: 0.95rem;
-            transition: color 0.3s;
+            font-weight: bold;
+            transition: background-color 0.2s, transform 0.1s;
         }
 
-        .nav-menu a:hover {
-            color: var(--azul-neon);
+        .btn-voltar:hover {
+            background-color: #2563eb;
         }
 
-        /* Seção Hero (Abertura) */
+        .btn-voltar:active {
+            transform: scale(0.98);
+        }
+
+        /* Introdução */
+
         .hero {
-            padding: 150px 20px 8px 20px;
+            padding: 150px 20px 40px;
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 900px;
+            margin: auto;
         }
 
         .hero h1 {
             font-size: 2.5rem;
+            color: white;
             margin-bottom: 20px;
-            color: #fff;
         }
 
         .hero h1 span {
@@ -98,37 +107,20 @@
         .hero p {
             color: var(--texto-mutado);
             font-size: 1.1rem;
-            margin-bottom: 40px;
         }
 
-        /* Grade de Conteúdo */
+        /* Conteúdo */
+
         .container {
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .grid-topicos {
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 500px;
+            margin: auto;
+            padding: 20px;
         }
 
         .grid-topicos1 {
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 800px;
-        }
-
-        @media (max-width: 600px) {
-            .grid-topicos1 {
-                grid-template-columns: 1fr;
-            }
-        }    
-
-        @media (max-width: 600px) {
-            .grid-topicos {
-                grid-template-columns: 1fr;
-            }
-            .hero h1 { font-size: 2rem; }
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
         }
 
         .card {
@@ -141,49 +133,36 @@
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             border-color: var(--azul-neon);
-        }
-
-        .card-tag {
-            display: inline-block;
-            background-color: rgba(56, 189, 248, 0.1);
-            color: var(--azul-neon);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            text-transform: uppercase;
         }
 
         .card h2 {
             font-size: 1.6rem;
             margin-bottom: 15px;
-            color: #fff;
+            color: white;
         }
 
         .card p {
             color: var(--texto-mutado);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-size: 0.95rem;
+            text-align: justify;
         }
 
-        /* Listas de Dicas */
+        /* Blocos de dicas */
+
         .bloco-dicas {
             background-color: var(--bg-destaque);
             border-radius: 8px;
             padding: 20px;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
         .bloco-dicas h3 {
             font-size: 1rem;
             margin-bottom: 12px;
             color: var(--azul-neon);
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .bloco-dicas ul {
@@ -198,63 +177,21 @@
             color: var(--texto-claro);
         }
 
-        /* Estilização moderna para o botão */
-        .btn-voltar {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background-color: #3b82f6;
-            color: white;
-            text-decoration: none;
-            border: none;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.2s, transform 0.1s;
-        }
-
-        /* Efeito ao passar o mouse */
-        .btn-voltar:hover {
-            background-color: #2563eb;
-        }
-
-        /* Efeito ao clicar */
-        .btn-voltar:active {
-            transform: scale(0.98);
-        }
-
-        .quiz-container {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            width: 100%;
-            max-width: 600px;
-        }
-
         .bloco-dicas li::before {
             content: "→";
             position: absolute;
             left: 0;
             color: var(--azul-neon);
             font-weight: bold;
+        }
 
         iframe {
             border-radius: 5px;
-        }
-
-        }
-
-        .btn-voltar {
-            position: fixed;       /* Fixa o elemento na tela (não sai do lugar ao rolar) */
-            top: 90px;             /* Distância de 20px do topo */
-            right: 20px;           /* Distância de 20px da direita */
-            z-index: 1000;
+            max-width: 100%;
         }
 
         /* Rodapé */
+
         footer {
             background-color: #070a12;
             border-top: 1px solid var(--borda);
@@ -264,132 +201,464 @@
             color: var(--texto-mutado);
             font-size: 0.9rem;
         }
+
+        /* Responsividade */
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-container {
+                padding: 12px 15px;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .btn-voltar {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+
     </style>
 </head>
+
 <body>
+
     <!-- Navegação -->
+
     <header>
         <nav class="nav-container">
-            <a href="#" class="logo">🚬Alerta no Ar</a>
-            <ul class="nav-menu">
-                <li style="right:20px; top:10px;"><a href="index.html"><button class="btn-voltar">
-        Ver Kanban
-    </button></a></li>
-            </ul>
+
+            <a href="#" class="logo">🚬 Alerta no Ar</a>
+
+            <a href="./index.html" class="btn-voltar">
+                Ver Kanban
+            </a>
+
+        </nav>
     </header>
 
 
     <!-- Introdução -->
-    <section class="hero" id="introdução">
-        <h1>Detector de fumaça <span>fumaça</span></h1>
-          </section>
+
+    <section class="hero" id="introducao">
+
+        <h1>Detector de <span>Fumaça</span></h1>
+
+        <p>
+            Tecnologia e inovação para conscientização e prevenção
+            do uso de cigarros eletrônicos em ambientes escolares.
+        </p>
+
+    </section>
 
 
-    <!-- Seções de Conteúdo -->
+    <!-- Conteúdo principal -->
+
     <main class="container">
 
         <div class="grid-topicos1">
 
-            <!-- Engenharia Social -->
-            <article class="card" id="definição">
-                <center><h2>Visão Geral</h2></center>
-                <p>O projeto propõe o desenvolvimento de um protótipo de detector de cigarros eletrônicos (vape) utilizando a tecnologia Arduino para combater o uso crescente desses dispositivos em ambientes escolares, como banheiros.
-                O avanço do vaping entre jovens é um problema grave de saúde pública, associado à dependência de nicotina, lesões pulmonares agudas (EVALI) e riscos ao desenvolvimento cerebral e cardiovascular. A fiscalização é dificultada pelo formato discreto dos aparelhos.</p>
+            <!-- Visão Geral -->
+
+            <article class="card" id="definicao">
+
+                <center>
+                    <h2>Visão Geral</h2>
+                </center>
+
+                <p>
+                    O projeto propõe o desenvolvimento de um protótipo
+                    de detector de cigarros eletrônicos (vape) utilizando
+                    a tecnologia Arduino para combater o uso crescente
+                    desses dispositivos em ambientes escolares, como
+                    banheiros.
+                </p>
+
+                <p>
+                    O avanço do vaping entre jovens é um problema grave
+                    de saúde pública, associado à dependência de nicotina,
+                    lesões pulmonares agudas (EVALI) e riscos ao
+                    desenvolvimento cerebral e cardiovascular. A
+                    fiscalização é dificultada pelo formato discreto
+                    dos aparelhos.
+                </p>
 
             </article>
-     <br>
-     <br>
-     <br>
 
 
-            <!-- Phishing -->
-            <article class="card" id="phishing">
+            <!-- O Problema -->
+
+            <article class="card" id="problema">
+
                 <h2>O Problema</h2>
-                <p>O consumo de cigarros eletrônicos entre jovens causa sérios prejuízos à saúde cardiovascular e respiratória, além de dependência química, conforme aponta um estudo de 2021 do Instituto Nacional do Câncer (Inca). Diante desse cenário preocupante, administradores escolares, como o diretor Glauber Maldonado da E.E. Culto à Ciência, enfrentam grandes dificuldades para fiscalizar o uso desses dispositivos devido aos seus formatos variados e discretos e à ausência de fumaça densa, o que facilita o uso escondido em locais como banheiros. Como alternativa tecnológica e ética para mitigar esse problema sem infringir os direitos humanos, propõe-se a instalação de um detector de vape camuflado no teto dos ambientes. Esse dispositivo operará de forma totalmente silenciosa e sem cores chamativas, notificando em tempo real apenas a equipe gestora para que as providências legais sejam tomadas. Por fim, essa medida funciona como uma importante ação preventiva e urgente que visa desestimular o uso dos cigarros eletrônicos, garantindo a preservação da saúde coletiva, o bem-estar e a segurança pública dentro das instituições.</p>
+
+                <p>
+                    O consumo de cigarros eletrônicos entre jovens causa
+                    sérios prejuízos à saúde cardiovascular e respiratória,
+                    além de dependência química, conforme aponta um estudo
+                    de 2021 do Instituto Nacional do Câncer (INCA).
+                </p>
+
+                <p>
+                    Diante desse cenário preocupante, administradores
+                    escolares, como o diretor Glauber Maldonado da
+                    E.E. Culto à Ciência, enfrentam grandes dificuldades
+                    para fiscalizar o uso desses dispositivos devido
+                    aos seus formatos variados e discretos e à ausência
+                    de fumaça densa, o que facilita o uso escondido em
+                    locais como banheiros.
+                </p>
+
+                <p>
+                    Como alternativa tecnológica e ética para mitigar
+                    esse problema sem infringir os direitos humanos,
+                    propõe-se a instalação de um detector de vape
+                    camuflado no teto dos ambientes. Esse dispositivo
+                    operará de forma totalmente silenciosa e sem cores
+                    chamativas, notificando em tempo real apenas a equipe
+                    gestora para que as providências legais sejam tomadas.
+                </p>
+
+                <p>
+                    Por fim, essa medida funciona como uma importante
+                    ação preventiva e urgente que visa desestimular o
+                    uso dos cigarros eletrônicos, garantindo a preservação
+                    da saúde coletiva, o bem-estar e a segurança pública
+                    dentro das instituições.
+                </p>
 
             </article>
-            <br>
-            <br>
-            <br>
 
-            <!-- Senhas Fortes -->
-            <article class="card" id="senhas">
+
+            <!-- Metodologia -->
+
+            <article class="card" id="metodologia">
+
                 <h2>Metodologia</h2>
-                <p>Este projeto descreve um detector de fumaça automatizado para escolas, desenvolvido com hardware e software programado em C++ no ambiente Arduino. O sistema monitora o ambiente pelo pino analógico A5 e controla um LED vermelho (pino 12), um LED verde (pino 11) e um buzzer (pino 10). No ciclo de execução, o microcontrolador lê continuamente os dados do sensor (escala de 0 a 1023) e os transmite ao Serial Monitor. Se os valores ultrapassarem o limite crítico de 800 unidades, indicando a presença de aerossóis, o LED vermelho e o alarme sonoro são ativados imediatamente; caso contrário, o circuito permanece em normalidade com o LED verde aceso. Para validação prática, o dispositivo foi instalado em uma maquete que simula a dispersão do vapor de cigarros eletrônicos em banheiros escolares, funcionando como um fiscalizador automático para apoiar a intervenção rápida da gestão pedagógica.</p>
+
+                <p>
+                    Este projeto descreve um detector de fumaça
+                    automatizado para escolas, desenvolvido com hardware
+                    e software programado em C++ no ambiente Arduino.
+                    O sistema monitora o ambiente pelo pino analógico A5
+                    e controla um LED vermelho (pino 12), um LED verde
+                    (pino 11) e um buzzer (pino 10).
+                </p>
+
+                <p>
+                    No ciclo de execução, o microcontrolador lê
+                    continuamente os dados do sensor (escala de 0 a 1023)
+                    e os transmite ao Serial Monitor. Se os valores
+                    ultrapassarem o limite crítico de 800 unidades,
+                    indicando a presença de aerossóis, o LED vermelho
+                    e o alarme sonoro são ativados imediatamente;
+                    caso contrário, o circuito permanece em normalidade
+                    com o LED verde aceso.
+                </p>
+
+                <p>
+                    Para validação prática, o dispositivo foi instalado
+                    em uma maquete que simula a dispersão do vapor de
+                    cigarros eletrônicos em banheiros escolares,
+                    funcionando como um fiscalizador automático para
+                    apoiar a intervenção rápida da gestão pedagógica.
+                </p>
+
+
                 <div class="bloco-dicas">
+
                     <h3>Arquitetura do Hardware e Coleta de Dados</h3>
-                    <p>O sistema utiliza o sensor MQ-2 na porta A0 para coletar dados ambientais, aplicando um filtro de média móvel (10 leituras consecutivas a cada 5 ms) para reduzir ruídos. A interface de alerta conta com LEDs (verde, amarelo e vermelho) e um buzzer com frequências variáveis baseadas no nível de risco. Para a conectividade, o protótipo utiliza um módulo Bluetooth HC-06 configurado via emulação de serial por software.
+
+                    <p>
+                        O sistema utiliza o sensor MQ-2 na porta A0 para
+                        coletar dados ambientais, aplicando um filtro de
+                        média móvel (10 leituras consecutivas a cada 5 ms)
+                        para reduzir ruídos. A interface de alerta conta
+                        com LEDs (verde, amarelo e vermelho) e um buzzer
+                        com frequências variáveis baseadas no nível de
+                        risco. Para a conectividade, o protótipo utiliza
+                        um módulo Bluetooth HC-06 configurado via
+                        emulação de serial por software.
                     </p>
+
                 </div>
+
+
                 <div class="bloco-dicas">
+
                     <h3>Montagem Física e Conexões do Circuito</h3>
-                    <p>A montagem do protótipo foi realizada em uma protoboard conectada ao Arduino Uno R3. A alimentação foi distribuída pelas trilhas de 5V e GND, permitindo a integração dos componentes. O sensor MQ-2 foi conectado ao pino analógico A0, enquanto o módulo Bluetooth HC-06 foi ligado aos pinos digitais 10 e 11. Os LEDs verde, amarelo e vermelho foram conectados aos pinos 3, 4 e 5, utilizando resistores de 220 Ω para limitar a corrente. Por fim, o buzzer foi conectado ao pino digital 8, completando o circuito de sinalização e alerta do protótipo.
+
+                    <p>
+                        A montagem do protótipo foi realizada em uma
+                        protoboard conectada ao Arduino Uno R3.
+                        A alimentação foi distribuída pelas trilhas de
+                        5V e GND, permitindo a integração dos componentes.
+                        O sensor MQ-2 foi conectado ao pino analógico A0,
+                        enquanto o módulo Bluetooth HC-06 foi ligado aos
+                        pinos digitais 10 e 11. Os LEDs verde, amarelo
+                        e vermelho foram conectados aos pinos 3, 4 e 5,
+                        utilizando resistores de 220 Ω para limitar
+                        a corrente. Por fim, o buzzer foi conectado
+                        ao pino digital 8, completando o circuito de
+                        sinalização e alerta do protótipo.
                     </p>
+
                 </div>
+
+
                 <div class="bloco-dicas">
+
                     <h3>Análise e Processamento de Dados</h3>
-                    <p>O sensor MQ-2 realiza a análise dos níveis de fumaça e gases em tempo real, classificando os resultados em três estados: normal, atenção e crítico. Com leituras abaixo de 500, o LED verde permanece aceso e o sistema envia o caractere '0' via Bluetooth. Entre 500 e 799, o LED amarelo é ativado, o buzzer emite alertas intermitentes de 500 Hz e o caractere '1' é transmitido. A partir de 800, o LED vermelho é acionado e o buzzer emite um alarme mais rápido, alternando entre 1000 Hz e 1500 Hz, mantendo o envio do caractere '1'. Para evitar transmissões repetitivas e otimizar a comunicação Bluetooth, o sistema envia os dados somente quando ocorre uma mudança de estado.
+
+                    <p>
+                        O sensor MQ-2 realiza a análise dos níveis
+                        de fumaça e gases em tempo real, classificando
+                        os resultados em três estados: normal, atenção
+                        e crítico.
                     </p>
+
+                    <p>
+                        Com leituras abaixo de 500, o LED verde permanece
+                        aceso e o sistema envia o caractere '0' via
+                        Bluetooth. Entre 500 e 799, o LED amarelo é
+                        ativado, o buzzer emite alertas intermitentes
+                        de 500 Hz e o caractere '1' é transmitido.
+                        A partir de 800, o LED vermelho é acionado
+                        e o buzzer emite um alarme mais rápido,
+                        alternando entre 1000 Hz e 1500 Hz.
+                    </p>
+
+                    <p>
+                        Para evitar transmissões repetitivas e otimizar
+                        a comunicação Bluetooth, o sistema envia os
+                        dados somente quando ocorre uma mudança
+                        de estado.
+                    </p>
+
                 </div>
 
             </article>
-            <br>
-            <br>
-            <br>
 
-            <!-- Wi-Fi Público -->
-            <article class="card" id="wifi">
+
+            <!-- Resultados -->
+
+            <article class="card" id="resultados">
+
                 <h2>Resultados</h2>
-                O desenvolvimento do Monitor de Fumaça integrou conhecimentos de eletrônica, sensores, programação, comunicação sem fio e desenvolvimento Android. A substituição do Arduino e HC-06 pelo ESP32 com Wi-Fi aprimorou a comunicação entre o hardware e o aplicativo, ampliando as possibilidades de monitoramento em rede local.</p>
-</article>
-<br>
-<br>
-<br>
 
-<article class="card" id="wifi">
+                <p>
+                    O desenvolvimento do Monitor de Fumaça integrou
+                    conhecimentos de eletrônica, sensores, programação,
+                    comunicação sem fio e desenvolvimento Android.
+                    A substituição do Arduino e HC-06 pelo ESP32 com
+                    Wi-Fi aprimorou a comunicação entre o hardware
+                    e o aplicativo, ampliando as possibilidades
+                    de monitoramento em rede local.
+                </p>
+
+            </article>
+
+
+            <!-- Considerações Finais -->
+
+            <article class="card" id="consideracoes">
+
                 <h2>Considerações Finais</h2>
-                <p>O projeto evidencia que desenvolver um sistema integrado não consiste apenas em escrever um programa. É necessário compreender o papel de cada componente, definir formatos de comunicação, testar cada etapa separadamente e verificar se todas as partes trabalham de maneira consistente. O protótipo não deve substituir detectores certificados nem ser utilizado como único mecanismo de segurança em ambientes reais. Uma aplicação destinada à proteção de pessoas exigiria validação técnica, calibração apropriada, testes de confiabilidade e análise das normas de segurança aplicáveis.</p>
-</article>
-<br>
-<br>
-<br>
-<article class="card" id="wifi">
+
+                <p>
+                    O projeto evidencia que desenvolver um sistema
+                    integrado não consiste apenas em escrever um
+                    programa. É necessário compreender o papel de
+                    cada componente, definir formatos de comunicação,
+                    testar cada etapa separadamente e verificar se
+                    todas as partes trabalham de maneira consistente.
+                </p>
+
+                <p>
+                    O protótipo não deve substituir detectores
+                    certificados nem ser utilizado como único mecanismo
+                    de segurança em ambientes reais. Uma aplicação
+                    destinada à proteção de pessoas exigiria validação
+                    técnica, calibração apropriada, testes de
+                    confiabilidade e análise das normas de segurança
+                    aplicáveis.
+                </p>
+
+            </article>
+
+
+            <!-- Referências -->
+
+            <article class="card" id="referencias">
+
                 <div class="bloco-dicas">
+
                     <h3>Referências</h3>
+
                     <ul>
-    <li>AGÊNCIA BRASIL. Anvisa aprova consulta pública sobre proibição de cigarro eletrônico. Agência Brasil, 15 dez. 2023. Disponível em: https://agenciabrasil.ebc.com.br/saude/noticia/2023-12/anvisa-aprova-consulta-publica-sobre-proibicao-de-cigarro-eletronico. Acesso em: 06 agosto. 2025.</li>
 
-    <li>AGÊNCIA BRASIL. A Anvisa discute nesta sexta regulamentação de cigarro eletrônico. Agência Brasil, 12 abr. 2024. Disponível em: https://agenciabrasil.ebc.com.br/saude/noticia/2024-04/anvisa-discute-nesta-sexta-regulamentacao-de-cigarro-eletronico. Acesso em: 06 agosto. 2025.</li>
+                        <li>
+                            AGÊNCIA BRASIL. Anvisa aprova consulta pública
+                            sobre proibição de cigarro eletrônico.
+                            Agência Brasil, 15 dez. 2023.
+                            <a href="https://agenciabrasil.ebc.com.br/saude/noticia/2023-12/anvisa-aprova-consulta-publica-sobre-proibicao-de-cigarro-eletronico" target="_blank">
+                                Acessar referência.
+                            </a>
+                        </li>
 
-    <li>AGÊNCIA BRASIL. A Anvisa publica resolução que proíbe cigarro eletrônico no Brasil. Agência Brasil, 26 abr. 2024. Disponível em: https://agenciabrasil.ebc.com.br/saude/noticia/2024-04/anvisa-publica-resolucao-que-proibe-cigarro-eletronico-no-brasil. Acesso em: 10 agosto. 2025.</li>
+                        <li>
+                            AGÊNCIA BRASIL. A Anvisa discute nesta sexta
+                            regulamentação de cigarro eletrônico.
+                            Agência Brasil, 12 abr. 2024.
+                            <a href="https://agenciabrasil.ebc.com.br/saude/noticia/2024-04/anvisa-discute-nesta-sexta-regulamentacao-de-cigarro-eletronico" target="_blank">
+                                Acessar referência.
+                            </a>
+                        </li>
 
-    <li>AGÊNCIA NACIONAL DE VIGILÂNCIA SANITÁRIA (ANVISA). Resolução RDC nº 46, de 28 de agosto de 2009. Proíbe a comercialização, importação e propaganda de quaisquer dispositivos eletrônicos para fumar. Diário Oficial da União, Brasília, 2009.</li>
+                        <li>
+                            AGÊNCIA BRASIL. A Anvisa publica resolução
+                            que proíbe cigarro eletrônico no Brasil.
+                            Agência Brasil, 26 abr. 2024.
+                            <a href="https://agenciabrasil.ebc.com.br/saude/noticia/2024-04/anvisa-publica-resolucao-que-proibe-cigarro-eletronico-no-brasil" target="_blank">
+                                Acessar referência.
+                            </a>
+                        </li>
 
-    <li>AGÊNCIA NACIONAL DE VIGILÂNCIA SANITÁRIA (ANVISA). Resolução RDC nº 855, de 15 de fevereiro de 2024. Dispõe sobre a atualização da regulamentação de dispositivos eletrônicos para fumar. Diário Oficial da União, Brasília, 2024.</li>
+                        <li>
+                            ANVISA. Resolução RDC nº 46, de 28 de agosto
+                            de 2009. Proíbe a comercialização, importação
+                            e propaganda de dispositivos eletrônicos
+                            para fumar.
+                        </li>
 
-    <li>ANVISA. Cigarro eletrônico: danos à saúde. Agência Nacional de Vigilância Sanitária, 2024. Disponível em: https://www.gov.br/anvisa/pt-br/assuntos/tabaco/danos-a-saude/cigarro-eletronico. Acesso em: 05 agosto. 2025.</li>
+                        <li>
+                            ANVISA. Resolução RDC nº 855, de 15 de
+                            fevereiro de 2024. Dispõe sobre a atualização
+                            da regulamentação de dispositivos eletrônicos
+                            para fumar.
+                        </li>
 
-    <li>ANVISA. Dispositivos eletrônicos para fumar são proibidos no Brasil desde 2009. Agência Nacional de Vigilância Sanitária, 08 ago. 2019. Disponível em: https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2019/dispositivos-eletronicos-para-fumar-proibidos-no-brasil-desde-2009. Acesso em: 06 agosto. 2025.</li>
+                        <li>
+                            ANVISA. Cigarro eletrônico: danos à saúde.
+                            2024.
+                            <a href="https://www.gov.br/anvisa/pt-br/assuntos/tabaco/danos-a-saude/cigarro-eletronico" target="_blank">
+                                Acessar referência.
+                            </a>
+                        </li>
 
-    <li>AVIGILON. Guia completo sobre detectores de vape. Avigilon, 2024. Disponível em: https://www.avigilon.com/br/blog/vape-detectors-guide. Acesso em: 06 agosto. 2025.</li>
+                        <li>
+                            ANVISA. Dispositivos eletrônicos para fumar
+                            são proibidos no Brasil desde 2009.
+                            <a href="https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2019/dispositivos-eletronicos-para-fumar-proibidos-no-brasil-desde-2009" target="_blank">
+                                Acessar referência.
+                            </a>
+                        </li>
 
-    <li>BBC NEWS BRASIL. ‘Vaping’: por que número de usuários de cigarro eletrônico cresce no Brasil mesmo com proibição. BBC Brasil, 26 jul. 2022. Disponível em: https://www.bbc.com/portuguese/brasil-62269733. Acesso em: 02 agosto 2025.</li>
+                        <li>
+                            AVIGILON. Guia completo sobre detectores
+                            de vape. 2024.
+                            <a href="https://www.avigilon.com/br/blog/vape-detectors-guide" target="_blank">
+                                Acessar referência.
+                            </a>
+                        </li>
 
-    <li>CECÍ, Mariana. Levantamento registra alta adesão de jovens aos vapes. Revista Pesquisa FAPESP, São Paulo, n. 354, ago. 2025. Disponível em: https://revistapesquisa.fapesp.br/levantamento-registra-alta-adesao-de-jovens-aos-vapes/. Acesso em: 7 agosto. 2025.</li>
+                        <li>
+                            BBC NEWS BRASIL. Vaping: por que número de
+                            usuários de cigarro eletrônico cresce no
+                            Brasil mesmo com proibição. 2022.
+                            <a href="https://www.bbc.com/portuguese/brasil-62269733" target="_blank">
+                                Acessar referência.
+                            </a>
+                        </li>
 
-    <li>CORRÊA, Paulo. Declarações sobre riscos do cigarro eletrônico. Sociedade Brasileira de Pneumologia e Tisiologia (SBPT), Ouro Preto, 2021.</li>
+                        <li>
+                            CECÍ, Mariana. Levantamento registra alta
+                            adesão de jovens aos vapes. Revista Pesquisa
+                            FAPESP, n. 354, ago. 2025.
+                            <a href="https://revistapesquisa.fapesp.br/levantamento-registra-alta-adesao-de-jovens-aos-vapes/" target="_blank">
+                                Acessar referência.
+                            </a>
+                        </li>
 
-    <li>FAPESP. Quase 1 milhão de brasileiros fumam regularmente cigarros eletrônicos. Revista Pesquisa FAPESP, 2023. Disponível em: https://revistapesquisa.fapesp.br/quase-1-milhao-de-brasileiros-fumam-regularmente-cigarros-eletronicos/. Acesso em: 06 agosto 2025.</li>
+                        <li>
+                            CORRÊA, Paulo. Declarações sobre riscos
+                            do cigarro eletrônico. Sociedade Brasileira
+                            de Pneumologia e Tisiologia (SBPT), 2021.
+                        </li>
 
-    <li>INSTITUTO NACIONAL DE CÂNCER (INCA). Cigarros eletrônicos: verdades e mentiras. Rio de Janeiro, 2023.</li>
+                        <li>
+                            FAPESP. Quase 1 milhão de brasileiros fumam
+                            regularmente cigarros eletrônicos. 2023.
+                            <a href="https://revistapesquisa.fapesp.br/quase-1-milhao-de-brasileiros-fumam-regularmente-cigarros-eletronicos/" target="_blank">
+                                Acessar referência.
+                            </a>
+                        </li>
 
-    <li>MADRUGA, Clarice; SZKLO, André. Armadilha para jovens. Revista Pesquisa FAPESP, São Paulo, n. 354, ago. 2025. Disponível em: https://revistapesquisa.fapesp.br/wp-content/uploads/2025/08/048-051_vapes_354.pdf. Acesso em: 7 julho. 2025.</li>
+                        <li>
+                            INSTITUTO NACIONAL DE CÂNCER (INCA).
+                            Cigarros eletrônicos: verdades e mentiras.
+                            Rio de Janeiro, 2023.
+                        </li>
 
-    <li>SOCIEDADE BRASILEIRA DE PNEUMOLOGIA E TISIOLOGIA (SBPT). Posicionamento oficial sobre dispositivos eletrônicos para fumar. Brasília, 2022.</li>
+                        <li>
+                            MADRUGA, Clarice; SZKLO, André.
+                            Armadilha para jovens. Revista Pesquisa
+                            FAPESP, n. 354, ago. 2025.
+                            <a href="https://revistapesquisa.fapesp.br/wp-content/uploads/2025/08/048-051_vapes_354.pdf" target="_blank">
+                                Acessar referência.
+                            </a>
+                        </li>
 
-    <li>TUNES, Suzel. Quase 1 milhão de brasileiros fumam regularmente cigarros eletrônicos. Revista Pesquisa FAPESP, São Paulo, 5 set. 2022. Disponível em: https://revistapesquisa.fapesp.br/quase-1-milhao-de-brasileiros-fumam-regularmente-cigarros-eletronicos/. Acesso em: 7 julho. 2025.</li>
-</ul>
+                        <li>
+                            SOCIEDADE BRASILEIRA DE PNEUMOLOGIA
+                            E TISIOLOGIA (SBPT). Posicionamento oficial
+                            sobre dispositivos eletrônicos para fumar.
+                            Brasília, 2022.
+                        </li>
+
+                        <li>
+                            TUNES, Suzel. Quase 1 milhão de brasileiros
+                            fumam regularmente cigarros eletrônicos.
+                            Revista Pesquisa FAPESP, 5 set. 2022.
+                            <a href="https://revistapesquisa.fapesp.br/quase-1-milhao-de-brasileiros-fumam-regularmente-cigarros-eletronicos/" target="_blank">
+                                Acessar referência.
+                            </a>
+                        </li>
+
+                    </ul>
+
                 </div>
-             </article>
-                <br>
-                <br>
+
+            </article>
+
+        </div>
+
+    </main>
+
+
+    <!-- Rodapé -->
+
+    <footer>
+
+        <p>
+            Alerta no Ar | Projeto de Desenvolvimento de Sistemas
+        </p>
+
+        <p>
+            Tecnologia, inovação e conscientização.
+        </p>
+
+    </footer>
+
+</body>
+</html>
+```
